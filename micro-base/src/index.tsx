@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
-// import { start, registerMicroApps, initGlobalState } from 'qiankun'
-import { start, registerMicroApps, initGlobalState } from '../src/micro-fe'
+import { start, registerMicroApps, initGlobalState } from 'qiankun'
 import { log } from 'node:console';
 
 const root = ReactDOM.createRoot(

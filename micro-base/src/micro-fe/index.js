@@ -12,7 +12,7 @@ export const registerMicroApp = (apps) => {
   _apps = apps;
 }
 
-export const start = () => {
+export const start = (p0: { sandbox: { strictStyleIsolation: boolean; }; }) => {
   // 微前端原理
   // 1. 监视路由变化
   //  hash 路由：windows.onhashchange
