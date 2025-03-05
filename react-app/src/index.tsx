@@ -33,7 +33,7 @@ export async function mount(props: any) {
   console.log(props)
   props.onGlobalStateChange((state, prev) => {
     // state: 变更后的状态; prev 变更前的状态
-    console.log(state, prev);
+    console.log(state, prev);  
     // 将这个state存储到我们子应用store
   });
   props.setGlobalState({ count: 2 });

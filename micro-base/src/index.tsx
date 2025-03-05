@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
-import { start, registerMicroApps, initGlobalState } from 'qiankun'
+// import { start, registerMicroApps, initGlobalState } from 'qiankun'
+import { start, registerMicroApps, initGlobalState } from '../src/micro-fe'
+import { log } from 'node:console';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -43,14 +45,20 @@ registerMicroApps(apps, {
   afterMount: [async app => console.log('after mount', app.name)],
 })
 
-const state = { count: 1 }
+const state = { count: 1, name: 'qiankun', age: 18 }
 
 const actions = initGlobalState(state);
+
 // 主项目项目监听和修改
 actions.onGlobalStateChange((state, prev) => {
   // state: 变更后的状态; prev 变更前的状态
-  console.log(state, prev);
+  console.log(state, prev, '主项目监听和修改');
 });
 actions.setGlobalState(state);
 
-start() // 3. 启动微服务
+start({
+  sandbox: {
+    strictStyleIsolation: true // 使用shadow dom 解决样式冲突
+    // experimentalStyleIsolation: true // 通过添加选择器范围来解决样式冲突
+  }
+}) // 3. 启动微服务
