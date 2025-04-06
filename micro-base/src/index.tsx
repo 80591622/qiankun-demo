@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import { start, registerMicroApps, initGlobalState } from 'qiankun'
-import { log } from 'node:console';
+// import { log } from 'node:console';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
