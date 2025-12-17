@@ -4,9 +4,9 @@ import { useEffect } from 'react'
 
 export default function List() {
   useEffect(() => {
-    axios.get('/list').then(res => {
-      console.log(res);
-    })
+    // axios.get('/list').then(res => {
+    //   console.log(res);
+    // })
   }, [])
   return (
     <div>
